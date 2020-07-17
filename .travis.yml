@@ -45,9 +45,11 @@ before_install:
 install:
   - |
       if [[ $PREFER_LOWEST == 1 ]]; then
-        travis_retry composer update --no-interaction --prefer-stable
+        composer update --no-interaction --prefer-stable
+      elif [[ $TRAVIS_PHP_VERSION == 'nightly' ]]; then
+        composer install --no-interaction --ignore-platform-reqs
       else
-        travis_retry composer update --no-interaction --prefer-stable --prefer-lowest
+        composer update --no-interaction --prefer-stable --prefer-lowest
       fi
 
 script:
