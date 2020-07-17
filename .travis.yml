@@ -44,11 +44,11 @@ before_install:
 install:
   - |
       if [[ $PREFER_LOWEST == 1 ]]; then
-        composer update --no-interaction --prefer-stable
+        composer update --no-interaction --prefer-stable --prefer-lowest
       elif [[ $TRAVIS_PHP_VERSION == 'nightly' ]]; then
         composer install --no-interaction --ignore-platform-reqs
       else
-        composer update --no-interaction --prefer-stable --prefer-lowest
+        composer update --no-interaction
       fi
 
 script:
