@@ -36,11 +36,10 @@ before_install:
 
   - |
       if [[ $CODECOVERAGE == 1 ]]; then
+        phpenv config-rm xdebug.ini
         pecl channel-update pecl.php.net
         pecl install pcov
       fi
-
-  - phpenv config-rm xdebug.ini
 
 install:
   - |
