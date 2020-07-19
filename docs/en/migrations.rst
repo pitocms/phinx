@@ -1138,7 +1138,7 @@ To rename a column, access an instance of the Table object then call the
             public function up()
             {
                 $table = $this->table('users');
-                $table->renameColumn('bio', 'biography');
+                $table->renameColumn('bio', 'biography')->update();
             }
 
             /**
@@ -1147,7 +1147,7 @@ To rename a column, access an instance of the Table object then call the
             public function down()
             {
                 $table = $this->table('users');
-                $table->renameColumn('biography', 'bio');
+                $table->renameColumn('biography', 'bio')->update();
             }
         }
 
